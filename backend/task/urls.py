@@ -1,0 +1,18 @@
+from django.urls import path
+from .views import TaskViewSet
+
+task_list = TaskViewSet.as_view({
+    'get': 'list',
+    'post': 'create',
+})
+
+task_detail = TaskViewSet.as_view({
+    'get': 'retrieve',
+    'patch': 'update',
+    'delete': 'destroy',
+})
+
+urlpatterns = [
+    path('tasks/', task_list),
+    path('tasks/<int:pk>/', task_detail),
+]
