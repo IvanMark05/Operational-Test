@@ -123,7 +123,10 @@ export default function ViewTask() {
             <p style={{ color: 'red', margin: '10px 0', fontWeight: 'bold' }}>{apiError}</p>
             )}
             <h1>Task List</h1>
-            <button onClick={() => setAddTaskModal(true)}>Add Task +</button>
+            <button onClick={() => setAddTaskModal(true)} 
+            style={{ padding: '10px', borderRadius: '5px', cursor: 'pointer', backgroundColor: '#FFFDEB', color: '#000', fontSize: 16 }} >
+              Add Task +
+            </button>
             <AddTaskModal
                 isOpen={addTaskModal}
                 onClose={() => setAddTaskModal(false)}
@@ -137,14 +140,14 @@ export default function ViewTask() {
         </div>
       ))}
     </div>
-
+      {data?.length === 0 && <p style={{ margin: '10px 0' }}>No tasks found</p>}
       {data?.map((task) => (
       <div key={task.id} style={{ ...gridStyle, borderBottom: '1px solid #ccc', padding: '10px 0' }}>
         <div>{task.id}</div>
         <div>{task.title}</div>
         <div>{task.description}</div>
         <div style={{ margin: 'auto' }}>
-        <div style={{ position: 'relative', width: '60px', height: '30px', cursor: 'pointer' }}>
+        <div style={{ position: 'relative', width: '40px', height: '20px', cursor: 'pointer' }}>
         <div
             style={{
             width: '100%',
@@ -157,11 +160,11 @@ export default function ViewTask() {
         <div
             onClick={() => handleToggle(task.id, !task.completed)}
             style={{
-            height: '26px',
-            width: '26px',
+            height: '16px',
+            width: '16px',
             borderRadius: '50%',
             backgroundColor: '#fff',
-            transform: task.completed ? 'translateX(30px)' : 'translateX(0)',
+            transform: task.completed ? 'translateX(20px)' : 'translateX(0)',
             transition: 'transform 0.3s',
             position: 'absolute',
             top: '2px',
@@ -171,8 +174,8 @@ export default function ViewTask() {
         </div>
         </div>
         <div>
-          <button onClick={() => handleUpdateClick(task)} style={{ marginRight: '10px' }}>Edit</button>
-          <button onClick={() => handleDeleteClick(task)}>Delete</button>
+          <button onClick={() => handleUpdateClick(task)} style={{ marginRight: '10px', cursor: 'pointer' }}>Edit</button>
+          <button onClick={() => handleDeleteClick(task)} style={{ cursor: 'pointer' }}>Delete</button>
         </div>
         <UpdateTaskModal
             isOpen={updateTaskModal}
