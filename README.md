@@ -25,7 +25,7 @@ To set up the backend locally, please follow these steps:
    pip install -r requirements.txt
    ```
 
-5. **Install dependencies:**
+5. **migrate models**
    ```bash
    python manage.py migrate
    ```
