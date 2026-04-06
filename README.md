@@ -25,7 +25,12 @@ To set up the backend locally, please follow these steps:
    pip install -r requirements.txt
    ```
 
-5. **Run the development server:**
+5. **Install dependencies:**
+   ```bash
+   python manage.py migrate
+   ```
+
+6. **Run the development server:**
    ```bash
    python manage.py runserver
    ```
